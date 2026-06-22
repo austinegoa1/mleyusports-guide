@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>c7c7.app · 功能速览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4faf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1f2e2e;
+      line-height: 1.6;
+      padding: 0 1.2rem 3rem;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* ----- hero ----- */
+    .hero {
+      text-align: center;
+      padding: 3.6rem 0.5rem 2.8rem;
+      border-bottom: 2px solid #c7e2df;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f3b3b;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #2b7a78, #3aa5a0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero .tagline {
+      font-size: 1.1rem;
+      color: #3f5e5e;
+      max-width: 640px;
+      margin: 1rem auto 0;
+      padding: 0 0.5rem;
+    }
+
+    /* ----- 网格卡片（优势 / 说明）----- */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.4rem;
+      margin-top: 2.6rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 1.2rem 1.8rem;
+      box-shadow: 0 6px 18px rgba(36, 94, 91, 0.06);
+      border: 1px solid #d4eeeb;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 28px rgba(36, 94, 91, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .card .icon {
+      display: inline-block;
+      background: #ddf3f1;
+      color: #1d6d6a;
+      font-size: 1.3rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      line-height: 2.2rem;
+      text-align: center;
+      border-radius: 12px;
+      margin-bottom: 0.7rem;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #0b3b3a;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2d4f4e;
+    }
+
+    /* ----- 说明区（两列）----- */
+    .info-duo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+      background: #ffffffdd;
+      padding: 2rem 1.6rem;
+      border-radius: 28px;
+      border: 1px solid #c7e2df;
+      backdrop-filter: blur(2px);
+    }
+
+    .info-duo .col {
+      flex: 1 1 260px;
+    }
+
+    .info-duo h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0b3b3a;
+      border-left: 5px solid #2b7a78;
+      padding-left: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .info-duo ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .info-duo li {
+      margin-bottom: 0.55rem;
+      position: relative;
+      padding-left: 1.3rem;
+      color: #1f3d3c;
+    }
+
+    .info-duo li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2b7a78;
+    }
+
+    .inline-link {
+      color: #1f6e6b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #99cfcb;
+      transition: border-color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1f6e6b;
+    }
+
+    /* FAQ 摘要 (精简) */
+    .faq-mini {
+      margin-top: 2.8rem;
+      padding: 1.8rem 1.4rem;
+      background: #e3f4f2;
+      border-radius: 28px;
+    }
+
+    .faq-mini h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0b3b3a;
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini details {
+      margin-top: 0.6rem;
+      border-bottom: 1px solid #b9d8d5;
+      padding: 0.5rem 0;
+    }
+
+    .faq-mini details summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #134b49;
+      padding: 0.2rem 0;
+    }
+
+    .faq-mini details p {
+      margin: 0.4rem 0 0.2rem 0.8rem;
+      font-size: 0.95rem;
+      color: #2b4e4d;
+    }
+
+    /* 底部链接 */
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #3f6462;
+      border-top: 1px solid #cfe7e4;
+      padding-top: 2rem;
+    }
+
+    .footer-note a {
+      color: #145c59;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- 响应式微调 ----- */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+      .info-duo {
+        padding: 1.5rem 1rem;
+      }
+      body {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 区 -->
+  <section class="hero">
+    <h1>关于 <span>c7c7.app</span></h1>
+    <p class="tagline">
+      快速确认网站用途，清晰了解提供什么、适合谁用，省去反复猜测的时间。
+    </p>
+  </section>
+
+  <!-- 优势区（3卡片） -->
+  <div class="grid-cards">
+    <div class="card">
+      <div class="icon">📌</div>
+      <h3>一目了然的定位</h3>
+      <p>从域名到页面设计都围绕一件事：让你在最短时间内判断这个网站是否对你有用。</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧩</div>
+      <h3>模块化信息布局</h3>
+      <p>hero、卡片、说明区、FAQ 摘要，每块内容各司其职，不堆砌。</p>
+    </div>
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>移动端优先</h3>
+      <p>网格自适应、字号与间距针对小屏优化，手机浏览体验流畅。</p>
+    </div>
+  </div>
+
+  <!-- 说明区（两列：场景 + 特点） -->
+  <div class="info-duo">
+    <div class="col">
+      <h2>适用场景</h2>
+      <ul>
+        <li>想快速了解 <a href="https://index-c7app.com" class="inline-link">c7c7.app</a> 是什么，是否匹配需求</li>
+        <li>需要一份简洁、结构清晰的网站介绍来参考或对比</li>
+        <li>评估网站是否符合自己的使用习惯（落地页逻辑）</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>页面特点</h2>
+      <ul>
+        <li>蓝绿色点缀，清新克制，不干扰阅读</li>
+        <li>网格卡片区分优势、说明与 FAQ，层次分明</li>
+        <li>所有链接自然融入叙述，不突兀</li>
+        <li>无诱导、无承诺，只做事实性展示</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要（3 条） -->
+  <section class="faq-mini">
+    <h2>常见疑问 · 摘要</h2>
+    <details>
+      <summary>这个网站主要解决什么问题？</summary>
+      <p>帮助访问者快速识别 <a href="https://index-c7app.com" class="inline-link">c7c7.app</a> 的用途与内容结构，避免进入页面后感到困惑。</p>
+    </details>
+    <details>
+      <summary>信息是否可靠？</summary>
+      <p>页面内容基于网站本身公开可见的元素整理，不做主观夸大，仅做客观描述。</p>
+    </details>
+    <details>
+      <summary>移动端体验如何？</summary>
+      <p>采用网格与弹性布局，按钮、卡片间距均针对手机触控优化，无需缩放即可阅读。</p>
+    </details>
+  </section>
+
+  <!-- 底部链接 -->
+  <footer class="footer-note">
+    <p>更多细节可前往 <a href="https://index-c7app.com">c7c7.app</a> 直接查看。</p>
+  </footer>
+
+</div>
+</body>
+</html>
