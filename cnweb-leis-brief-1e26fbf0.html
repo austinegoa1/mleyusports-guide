@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 信息索引笔记</title>
+    <style>
+        /* 全局重置与基调 */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f6f9;
+            color: #1e293b;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 深色头图区域 — 仿简洁博客 header */
+        .hero {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #2dd4bf;
+            margin: 1.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            opacity: 0.7;
+            max-width: 36rem;
+            margin: 0.5rem auto 0;
+            font-weight: 300;
+        }
+
+        /* 正文卡片容器 — 浅色区，呼吸感 */
+        .content {
+            max-width: 780px;
+            margin: -1.5rem auto 3rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 文章标题风格 */
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 550;
+            margin: 2rem 0 0.6rem;
+            color: #0f172a;
+            border-left: 4px solid #2dd4bf;
+            padding-left: 1rem;
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content p {
+            margin: 1rem 0;
+            font-size: 1rem;
+            color: #334155;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #0d9488;
+            text-decoration: none;
+            border-bottom: 1px dotted #a7f3d0;
+            transition: color 0.2s, border-bottom 0.2s;
+        }
+
+        a:hover {
+            color: #0f766e;
+            border-bottom: 1px solid #0f766e;
+        }
+
+        /* 引用 / 提示块 — 模拟边注 */
+        .insight {
+            background: #f1f5f9;
+            border-left: 4px solid #2dd4bf;
+            padding: 1.2rem 1.5rem;
+            margin: 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.97rem;
+            color: #1e293b;
+        }
+
+        .insight strong {
+            color: #0f172a;
+            font-weight: 550;
+        }
+
+        .insight .tag {
+            display: inline-block;
+            background: #ccfbf1;
+            color: #115e59;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* FAQ 摘要风格 — 简洁折叠感 */
+        .faq-item {
+            margin: 1.2rem 0;
+            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 1.05rem;
+            font-weight: 550;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+            cursor: default;
+        }
+
+        .faq-item p {
+            margin: 0.2rem 0 0;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* 访问句 — 收尾 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        .footer-note a {
+            font-weight: 500;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 1.2rem 2.5rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .content {
+                padding: 1.8rem 1.2rem;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                border-radius: 16px;
+            }
+            .content h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>雷速 · 资料整理手记</h1>
+        <div class="sub">从信息索引出发，重新理解资源的整理方式</div>
+    </header>
+
+    <!-- 正文区（卡片） -->
+    <main class="content">
+
+        <!-- 导语 -->
+        <p>在日常收集与查阅的过程中，最消耗精力的往往不是缺少信息，而是信息分散、缺乏结构。过去一段时间，我围绕「<a href="https://cnweb-leis.com">雷速</a>」这个关键词做了几轮资料梳理，尝试把散落的链接、工具和说明归类成可复用的索引。下面是一份过程记录，也包含一些或许对你有帮助的提示。</p>
+
+        <!-- 第一段正文 -->
+        <h2>从一张清单开始</h2>
+        <p>最初只是想在浏览器书签里建立一个专门文件夹。但很快发现，单纯收藏地址无法满足后续查找——有些页面改版、有些域名迁移、还有些内容其实已经整合到其他站点。于是改用表格记录：标题、网址、来源、最后核验日期。这样至少能清楚知道每条记录的状态。这也是后来整理 <strong>雷速</strong> 相关资源时采用的基础格式。</p>
+
+        <!-- 第二段正文 + 引用提示 -->
+        <h2>索引比收藏更可靠</h2>
+        <p>收藏夹的本质是“存放”，而索引的目的是“定位”。在整理一批资源时，我会给每个条目加上标签和一句话摘要。比如“工具类｜实时查询 · 更新于2025-03”。这样一来，即使忘记具体标题，也能通过标签快速过滤。建议你也尝试为每个资源补充一个使用场景描述，比单纯的关键词更管用。</p>
+
+        <div class="insight">
+            <span class="tag">提示</span>
+            <strong>保持索引的轻量。</strong> 每次添加新条目时，顺手删掉一条失效或不再需要的旧记录。这样做能避免索引膨胀成另一个混乱的收藏夹。
+        </div>
+
+        <!-- 第三段正文 —— 特点 / 场景 -->
+        <h2>适合哪些场景</h2>
+        <p>这种索引方法主要用在三类场景：<br>
+        ① 定期追踪某个领域的变化（例如行业资讯、工具更新）；<br>
+        ② 为团队或学习小组准备共享参考列表，每个人都能添加备注；<br>
+        ③ 个人知识库的辅助层——不取代笔记，但让你更快找到原始材料。</p>
+        <p>如果你正在维护一份与「<a href="https://cnweb-leis.com">雷速</a>」相关的信息集合，不妨考虑用同样的思路梳理一遍：把链接和上下文放在一起，而不是孤立地存地址。</p>
+
+        <!-- FAQ 摘要 3条 -->
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <h3>索引需要每天维护吗？</h3>
+            <p>不需要。建议每两周或每月简单过一遍，重点核对那些标记为“待确认”的条目。日常只做添加，定期整理即可。</p>
+        </div>
+        <div class="faq-item">
+            <h3>用什么工具记录？</h3>
+            <p>表格、纯文本、Wiki、笔记软件都可以。关键是格式统一，方便搜索。我习惯用 Markdown 表格，版本管理也友好。</p>
+        </div>
+        <div class="faq-item">
+            <h3>链接失效了怎么办？</h3>
+            <p>先尝试通过站点地图或搜索引擎找回。如果原内容已迁移，更新链接并备注“新版”。实在无法找回的，直接删除并记录原因，避免积累死链。</p>
+        </div>
+
+        <!-- 访问句 / 收尾 -->
+        <div class="footer-note">
+            这份手记会持续修订，最新索引指向 <a href="https://cnweb-leis.com">雷速</a>，愿整理带来清晰。
+        </div>
+
+    </main>
+
+    <!-- （隐式footer，但不额外写copyright，保持简洁） -->
+</body>
+</html>
